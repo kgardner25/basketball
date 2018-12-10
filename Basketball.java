@@ -3,6 +3,9 @@
 //Program creates two types of points (make and miss)
 //Make is filled in circle, miss is outline of circle
 //Every time there is a click, the number of shots is record
+//This program is made for a player,coach, or sports fanatic to keep track of makes and misses
+//In the future I would like to possibly turn this into an app and add more features to it such as three pointers
+
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -39,6 +42,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+//create shot class
 class Shot implements Serializable {
 	private int x;
 	private int y;
@@ -70,6 +74,7 @@ class Shot implements Serializable {
 	}
 }
 
+//serialization using binary
 @SuppressWarnings("unchecked")
 class ShotSerialization {
 	public static void main(String[] args) {
@@ -101,6 +106,8 @@ class ShotSerialization {
 	}
 }
 
+//shot panel
+//has mouselisteners a part of it
 class ShotPanel extends JPanel implements MouseListener {
 	private ArrayList<Shot> shots;
 	private String message;
@@ -151,6 +158,7 @@ class ShotPanel extends JPanel implements MouseListener {
 		message = "Welcome to Shot Tracker";
 		pointSize = 25;
 	}
+	//functions to draw the shots and message
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -171,6 +179,7 @@ class ShotPanel extends JPanel implements MouseListener {
 	}
 }
 
+//shotframe which includes menu bar items
 class ShotFrame extends JFrame implements ActionListener {
 	private ArrayList<Shot> shots;
 	private ShotPanel span;
@@ -280,6 +289,8 @@ class ShotFrame extends JFrame implements ActionListener {
 		
 	}
 }
+
+//main class and puts together and prints out everything
 public class Basketball {
 	public static void main(String[] args) {
 		ArrayList<Shot> shots = new ArrayList<Shot>();
